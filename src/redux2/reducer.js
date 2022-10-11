@@ -28,25 +28,22 @@ export const Reducer = (state = initialValue, action) => {
       };
     case "SORT_EXPENSES":
       const sortItem = [...state.expList];
-      switch (action.payload) {
-        case "A-Z":
-          sortItem.sort((a, b) => {
-            return a.product > b.product ? 1 : -1;
-          });
-        case "Z-A":
-          sortItem.sort((a, b) => {
-            return a.product > b.product ? -1 : 1;
-          });
-        case "highest":
-          sortItem.sort((a, b) => {
-            return a.spent - b.spent;
-          });
-        case "lowest":
-          sortItem.sort((a, b) => {
-            return b.spent - a.spent;
-          });
-      }
-      return {...state, expList: [...sortItem]};
+      console.log(action.payload);
+      sortItem.sort((a, b) => {
+        if (action.payload === "A-Z") {
+          return a.product > b.product ? 1 : -1;
+        }
+        if (action.payload === "Z-A") {
+          return a.product > b.product ? -1 : 1;
+        }
+        if (action.payload === "highest") {
+          return a.spent - b.spent;
+        }
+        if (action.payload === "lowest") {
+          return b.spent - a.spent;
+        }
+      });
+      return { ...state, expList: [...sortItem] };
     default:
       return state;
   }

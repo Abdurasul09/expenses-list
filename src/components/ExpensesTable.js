@@ -6,15 +6,15 @@ const ExpensesTable = () => {
   const { expList } = useSelector((s) => s);
 
   return (
-    <div>
+    <div className="overflow-x-auto">
       <table className="table-fixed w-full">
-        <thead>
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th className="border w-1/4 px-4 py-2 text-start">#</th>
-            <th className="border w-1/4 px-4 py-2 text-start">Date of purchase</th>
-            <th className="border w-1/4 px-4 py-2 text-start">Product name</th>
-            <th className="border w-1/4 px-4 py-2 text-start">Price</th>
-            <th className="border w-1/6 px-4 py-2 text-start">X</th>
+            <th scope="col" className="border sm:w-48 py-3 px-6">#</th>
+            <th scope="col" className="border sm:w-48 py-3 px-6">Date of purchase</th>
+            <th scope="col" className="border sm:w-48 py-3 px-6">Product name</th>
+            <th scope="col" className="border sm:w-48 py-3 px-6">Price</th>
+            <th scope="col" className="border sm:w-48 py-3 px-6">X</th>
           </tr>
         </thead>
         <tbody>
