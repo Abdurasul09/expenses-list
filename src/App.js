@@ -3,14 +3,11 @@ import "./App.css";
 import Expenses from "./components/Expenses";
 import ExpensesTable from "./components/ExpensesTable";
 import Sort from "./components/Sort";
-
+import {Clear} from "./redux/actions/actions"
 function App() {
+  
   const { balance, expenses, expList } = useSelector((state) => state);
   const dispatch = useDispatch();
-
-  const clear = () => {
-    dispatch({ type: "CLEAR", payload: {} });
-  };
 
   return (
     <div className="container mx-auto px-9">
@@ -21,7 +18,7 @@ function App() {
         <div className="flex items-center sm:justify-between">
           <Sort />
           <button
-            onClick={() => clear()}
+            onClick={() => dispatch(Clear())}
             className="bg-gray-700 hover:bg-gray-900 ml-4 text-white font-bold py-2 px-4 rounded"
           >
             Clear

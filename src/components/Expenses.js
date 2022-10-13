@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-
+import { CreateData } from "../redux/actions/actions";
 const Expenses = () => {
   const [history, setHistory] = useState({
     date: "",
     product: "",
     spent: "",
   });
-
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -16,7 +15,7 @@ const Expenses = () => {
 
   const createData = (e) => {
     e.preventDefault();
-    dispatch({ type: "CREATE_EXPENSES_LIST", payload: history });
+    dispatch(CreateData(history));
     setHistory({
       date: "",
       product: "",
